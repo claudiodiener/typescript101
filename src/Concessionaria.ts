@@ -44,7 +44,7 @@ const concessionaria = {
     }
 }
 
-const passaggioDiProprieta = function(name, surname) {
+const passaggioDiProprieta = function(name: string, surname: string) {
     if (this.proprietario.name != undefined) {
         return false
     }
