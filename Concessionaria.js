@@ -86,22 +86,6 @@ const fiat = {
     sell: sell,
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // --------------
 const concessionariaAuto = [
     {
