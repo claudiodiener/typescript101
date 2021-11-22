@@ -36,7 +36,7 @@ export const hyundai: car = {
     }
 }
 
-const fiat: car = {
+export const fiat: car = {
     model: "punto",
     plate: "AA111BB",
     owner: {

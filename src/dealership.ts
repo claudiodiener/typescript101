@@ -17,7 +17,7 @@ export const isCarInList = function(car: cars.car, list: Array<cars.car>): boole
     return false
 }
 
-const dealership: dealership = {
+export const dealership: dealership = {
     name: "concessionariaSRL",
     phone: "081123456",
     cars: [],
@@ -40,7 +40,7 @@ const dealership: dealership = {
                 break
             }
         }
-        if (!carIndex) {
+        if (carIndex === undefined) {
             return false 
         }
         if (!car?.changeOfOwnership(name, surname)) {

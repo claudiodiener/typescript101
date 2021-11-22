@@ -1,4 +1,5 @@
 import * as dealership from "./dealership"
+import * as cars from "./cars"
 
 describe('isCarInList', function() {
   const concessionariaAuto = [
@@ -84,17 +85,47 @@ describe('isCarInList', function() {
   })
 })
 
+describe('buy', function() {
+  it('should return true', function() {
+    expect(cars.hyundai.changeOfOwnership("Gabriele", "Diener")).toStrictEqual(true)
+  })
+  it('should return the new owner', function() {
+    expect(cars.hyundai.owner).toStrictEqual({
+      name: "Gabriele",
+      surname: "Diener"
+    })
+  })
+  it('should return true', function() {
+    expect(dealership.dealership.buy(cars.hyundai)).toStrictEqual(true)
+  })
+  it('should be undefined', function() {
+    expect(cars.hyundai.owner).toStrictEqual({
+      name: undefined,
+      surname: undefined
+    })
+  })
+  it('should return the length', function() {
+    expect(dealership.dealership.cars.length).toStrictEqual(1)
+  })
+  it('should return false', function() {
+    expect(dealership.dealership.buy(cars.hyundai)).toStrictEqual(false)
+  })
+  it('should return the length', function() {
+    expect(dealership.dealership.cars.length).toStrictEqual(1)
+  })
+})
 
-// console.log("TEST: funzione buy")
-// console.log("Mi aspetto 'true', ho ottenuto:", hyundai.passaggioDiProprieta("Gabriele", "Diener"))
-// console.log("Mi aspetto '{ name: 'Gabriele', surname: 'Diener' }', ho ottenuto:", hyundai.proprietario)
-// console.log("Mi aspetto 'true', ho ottenuto:", concessionaria.buy(hyundai))
-// console.log("Mi aspetto '{}', ho ottenuto:", hyundai.proprietario)
-// console.log("Mi aspetto '1', ho ottenuto:", concessionaria.auto.length)
-// console.log("Mi aspetto 'false', ho ottenuto:", concessionaria.buy(hyundai))
-// console.log("Mi aspetto '1', ho ottenuto:", concessionaria.auto.length)
-// console.log()
-
-// console.log("TEST: sale")
-// console.log("Mi aspetto 'false', ho ottenuto:", concessionaria.sale("punto", "Gabriele", "Diener"))
-// console.log("Mi aspetto 'i20', ho ottenuto:", concessionaria.sale("i20", "Gabriele", "Diener").modello)
+describe('sale', function() {
+  it('should return false', function() {
+    expect(dealership.dealership.sale("punto", "Gabriele", "Diener")).toStrictEqual(false)
+  })
+  it('should return the model', function() {
+    let result = dealership.dealership.sale("i20", "Gabriele", "Diener")
+    expect(result).toEqual(
+      expect.objectContaining({
+        model: "i20",
+        plate: "BB111AA",
+      })
+    )
+  })
+})
