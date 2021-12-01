@@ -1,13 +1,13 @@
 import * as carModel from "./Car";
 
-interface truckInterface {
+export interface truckInterface {
     trailer: boolean
     trailerPlate: string
     attachTrailer: (plate: string) => boolean
     deattachTrailer: () => boolean
 }
 
-class Truck extends carModel.Car implements truckInterface {
+export class Truck extends carModel.Car implements truckInterface {
     trailer: boolean = false
     trailerPlate: string = ""
 
