@@ -6,7 +6,8 @@
   "author": "Claudio Diener <diener.claudio@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --runInBand --verbose"
+    "test": "jest --runInBand --verbose",
+    "build": "tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
