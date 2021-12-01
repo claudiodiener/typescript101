@@ -10,27 +10,7 @@ export const hyundai = new carModel.Car("i20","BB111AA", {
     surname: undefined
 })
 
-export const fiat: carModel.carInterface = {
-    model: "punto",
-    plate: "AA111BB",
-    owner: {
-        name: undefined,
-        surname: undefined
-    },
-    changeOfOwnership: function(name: string, surname: string): boolean {
-        if (this.owner.name != undefined) {
-            return false
-        }
-        this.owner.name = name
-        this.owner.surname = surname
-        return true   
-    },
-    sell: function(): boolean {
-        if (this.owner.name == undefined) {
-            return false
-        }
-        this.owner.name = undefined
-        this.owner.surname = undefined
-        return true
-    }
-}
+export const fiat = new carModel.Car("punto", "AA111BB", {
+    name: undefined,
+    surname: undefined
+})
