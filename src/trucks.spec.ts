@@ -1,19 +1,19 @@
-import * as truckModel from "./trucks"
+import { audiTruck } from "./trucks"
 
 describe('truck attach trailer', function() {
   it('should be true', function() {
-    expect(truckModel.audiTruck.attachTrailer("FF333AA")).toBe(true)
+    expect(audiTruck.attachTrailer("FF333AA")).toBe(true)
   })
   it('should be false', function() {
-    expect(truckModel.audiTruck.attachTrailer("AA444BB")).toBe(false)
+    expect(audiTruck.attachTrailer("AA444BB")).toBe(false)
   })
 })
 
 describe('truck deattach trailer', function() {
   it('should be true', function() {
-    expect(truckModel.audiTruck.deattachTrailer()).toBe(true)
+    expect(audiTruck.deattachTrailer()).toBe(true)
   })
   it('should be false', function() {
-    expect(truckModel.audiTruck.deattachTrailer()).toBe(false)
+    expect(audiTruck.deattachTrailer()).toBe(false)
   })
 })

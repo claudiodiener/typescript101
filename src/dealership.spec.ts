@@ -1,5 +1,5 @@
-import * as dealership from "./dealership"
-import * as cars from "./cars"
+import { dealership, isCarInList } from "./dealership"
+import { hyundai } from "./cars"
 
 describe('isCarInList', function() {
   const concessionariaAuto = [
@@ -78,49 +78,49 @@ describe('isCarInList', function() {
   }
   
   it('should be false', function() {
-    expect(dealership.isCarInList(mercedes, concessionariaAuto)).toBe(false)
+    expect(isCarInList(mercedes, concessionariaAuto)).toBe(false)
   })
   it('should be true', function() {
-    expect(dealership.isCarInList(bmw, concessionariaAuto)).toBe(true)
+    expect(isCarInList(bmw, concessionariaAuto)).toBe(true)
   })
 })
 
 describe('buy', function() {
   it('should return true', function() {
-    expect(cars.hyundai.changeOfOwnership("Gabriele", "Diener")).toStrictEqual(true)
+    expect(hyundai.changeOfOwnership("Gabriele", "Diener")).toStrictEqual(true)
   })
   it('should return the new owner', function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
       name: "Gabriele",
       surname: "Diener"
     })
   })
   it('should return true', function() {
-    expect(dealership.dealership.buy(cars.hyundai)).toStrictEqual(true)
+    expect(dealership.buy(hyundai)).toStrictEqual(true)
   })
   it('should be undefined', function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
       name: undefined,
       surname: undefined
     })
   })
   it('should return the length', function() {
-    expect(dealership.dealership.cars.length).toStrictEqual(1)
+    expect(dealership.cars.length).toStrictEqual(1)
   })
   it('should return false', function() {
-    expect(dealership.dealership.buy(cars.hyundai)).toStrictEqual(false)
+    expect(dealership.buy(hyundai)).toStrictEqual(false)
   })
   it('should return the length', function() {
-    expect(dealership.dealership.cars.length).toStrictEqual(1)
+    expect(dealership.cars.length).toStrictEqual(1)
   })
 })
 
 describe('sale', function() {
   it('should return false', function() {
-    expect(dealership.dealership.sale("punto", "Gabriele", "Diener")).toStrictEqual(false)
+    expect(dealership.sale("punto", "Gabriele", "Diener")).toStrictEqual(false)
   })
   it('should return the model', function() {
-    let result = dealership.dealership.sale("i20", "Gabriele", "Diener")
+    let result = dealership.sale("i20", "Gabriele", "Diener")
     expect(result).toEqual(
       expect.objectContaining({
         model: "i20",

@@ -1,6 +1,6 @@
-import * as truck from "./model/Truck"
+import { Truck } from "./model/Truck"
 
-export const audiTruck = new truck.Truck("audiTruck", "SS222DD", {
+export const audiTruck = new Truck("audiTruck", "SS222DD", {
   name: undefined,
   surname: undefined
 })

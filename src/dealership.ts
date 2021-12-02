@@ -1,14 +1,14 @@
-import * as carModel from "./model/Car"
+import { carInterface } from "./model/Car"
 
 interface dealership {
     name: string
     phone: string
-    cars: Array<carModel.carInterface>
-    buy: (car: carModel.carInterface) => boolean
-    sale: (model: string, name: string, surname: string) => boolean | carModel.carInterface
+    cars: Array<carInterface>
+    buy: (car: carInterface) => boolean
+    sale: (model: string, name: string, surname: string) => boolean | carInterface
 }
 
-export const isCarInList = function(car: carModel.carInterface, list: Array<carModel.carInterface>): boolean {
+export const isCarInList = function(car: carInterface, list: Array<carInterface>): boolean {
     for (let index = 0; index < list.length; index++) {
         if (car.plate == list[index].plate) {
             return true
@@ -21,7 +21,7 @@ export const dealership: dealership = {
     name: "concessionariaSRL",
     phone: "081123456",
     cars: [],
-    buy: function(car: carModel.carInterface): boolean {
+    buy: function(car: carInterface): boolean {
         if (isCarInList(car, this.cars)) {
             return false
         }
@@ -30,7 +30,7 @@ export const dealership: dealership = {
         return true
     },
 
-    sale: function(model: string, name: string, surname: string): boolean | carModel.carInterface {
+    sale: function(model: string, name: string, surname: string): boolean | carInterface {
         let carIndex
         let car
         for (let index = 0; index < this.cars.length; index++) {

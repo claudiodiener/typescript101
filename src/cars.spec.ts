@@ -1,26 +1,26 @@
-import * as cars from "./cars" 
+import { hyundai, fiat } from "./cars" 
 
 describe('hyundai changeOfOwnership', function() {
   it('should be undefined', function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
         name: undefined,
         surname: undefined
       })
   })
   it("should change the owner", function() {
-      expect(cars.hyundai.changeOfOwnership("Claudio", "Diener")).toBe(true)
+      expect(hyundai.changeOfOwnership("Claudio", "Diener")).toBe(true)
   })
   it("should return the new owner", function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
         name: "Claudio",
           surname: "Diener"
       })
   })
   it("should return false", function() {
-    expect(cars.hyundai.changeOfOwnership("Gabriele", "Diener")).toBe(false)
+    expect(hyundai.changeOfOwnership("Gabriele", "Diener")).toBe(false)
   })
   it("should return the owner", function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
       name: "Claudio",
       surname: "Diener"
     })
@@ -29,25 +29,25 @@ describe('hyundai changeOfOwnership', function() {
 
 describe('fiat changeOfOwnership', function() {
   it('should be undefined', function() {
-    expect(cars.fiat.owner).toStrictEqual({
+    expect(fiat.owner).toStrictEqual({
       name: undefined,
       surname: undefined
     })
   })
   it('should return true', function() {
-    expect(cars.fiat.changeOfOwnership("Gabriele", "Diener")).toStrictEqual(true)
+    expect(fiat.changeOfOwnership("Gabriele", "Diener")).toStrictEqual(true)
   })
   it('should return the new owner', function() {
-    expect(cars.fiat.owner).toStrictEqual({
+    expect(fiat.owner).toStrictEqual({
       name: "Gabriele",
       surname: "Diener"
     })
   })
   it('should return false', function() {
-    expect(cars.fiat.changeOfOwnership("Claudio", "Diener")).toStrictEqual(false)
+    expect(fiat.changeOfOwnership("Claudio", "Diener")).toStrictEqual(false)
   })
   it('should return the owner', function() {
-    expect(cars.fiat.owner).toStrictEqual({
+    expect(fiat.owner).toStrictEqual({
       name: "Gabriele",
       surname: "Diener"
     })
@@ -56,25 +56,25 @@ describe('fiat changeOfOwnership', function() {
 
 describe('hyundai sell', function() {
   it('should return the owner', function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
       name: "Claudio",
       surname: "Diener"
     })
   })
   it('should return true', function() {
-    expect(cars.hyundai.sell()).toStrictEqual(true)
+    expect(hyundai.sell()).toStrictEqual(true)
   })
   it('should be undefined', function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
       name: undefined,
       surname: undefined
     })
   })
   it('should return false', function() {
-    expect(cars.hyundai.sell()).toStrictEqual(false)
+    expect(hyundai.sell()).toStrictEqual(false)
   })
   it('should be undefined', function() {
-    expect(cars.hyundai.owner).toStrictEqual({
+    expect(hyundai.owner).toStrictEqual({
       name: undefined,
       surname: undefined
     })
@@ -83,25 +83,25 @@ describe('hyundai sell', function() {
 
 describe('fiat sell', function() {
   it('should return the owner', function() {
-    expect(cars.fiat.owner).toStrictEqual({
+    expect(fiat.owner).toStrictEqual({
       name: "Gabriele",
       surname: "Diener"
     })
   })
   it('should return true', function() {
-    expect(cars.fiat.sell()).toStrictEqual(true)
+    expect(fiat.sell()).toStrictEqual(true)
   })
   it('should be undefined', function() {
-    expect(cars.fiat.owner).toStrictEqual({
+    expect(fiat.owner).toStrictEqual({
       name: undefined,
       surname: undefined
     })
   })
   it('should return false', function() {
-    expect(cars.fiat.sell()).toStrictEqual(false)
+    expect(fiat.sell()).toStrictEqual(false)
   })
   it('should be undefined', function() {
-    expect(cars.fiat.owner).toStrictEqual({
+    expect(fiat.owner).toStrictEqual({
       name: undefined,
       surname: undefined
     })
