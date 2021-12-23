@@ -90,7 +90,7 @@ describe('buy', function() {
     expect(hyundai.changeOfOwnership("Gabriele", "Diener")).toStrictEqual(true)
   })
   it('should return the new owner', function() {
-    expect(hyundai.owner).toStrictEqual({
+    expect(hyundai.getOwner()).toStrictEqual({
       name: "Gabriele",
       surname: "Diener"
     })
@@ -99,7 +99,7 @@ describe('buy', function() {
     expect(dealership.buy(hyundai)).toStrictEqual(true)
   })
   it('should be undefined', function() {
-    expect(hyundai.owner).toStrictEqual({
+    expect(hyundai.getOwner()).toStrictEqual({
       name: undefined,
       surname: undefined
     })
