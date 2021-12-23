@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid'
+
 interface ownerInterface {
     name: string | undefined
     surname: string | undefined
@@ -6,23 +8,41 @@ interface ownerInterface {
 export interface carInterface {
     model: string
     plate: string
-    owner: ownerInterface
     changeOfOwnership: (name: string, surname: string) => boolean
     sell: () => boolean
 }
 
 export class Car implements carInterface {
-    model: string
-    plate: string
-    owner: ownerInterface
+    public id: number
+    protected _model: string
+    public plate: string
+    protected owner: ownerInterface
 
     constructor(model: string, plate: string, owner: ownerInterface) {
-        this.model = model
+        this.id = uuidv4()
+        this._model = model
         this.plate = plate
         this.owner = owner
     }
 
-    changeOfOwnership(name: string, surname: string): boolean {
+    public toJSON() {
+        return {
+            id: this.id,
+            model: this.model,
+            plate: this.plate,
+            owner: this.owner
+        }
+    }
+
+    get model(): string {
+        return this._model
+    }
+
+    public getOwner(): ownerInterface {
+        return this.owner
+    }
+
+    public changeOfOwnership(name: string, surname: string): boolean {
         if (this.owner.name != undefined) {
             return false
         }
@@ -31,7 +51,7 @@ export class Car implements carInterface {
         return true   
     }
 
-    sell(): boolean {
+    public sell(): boolean {
         if (this.owner.name == undefined) {
             return false
         }
